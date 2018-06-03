@@ -26,13 +26,13 @@
   	<bean parent="serviceContext">
     <property name="moduleService">
         <list>
-            <value>org.openmrs.module.facelist.Service.DepartmentService</value> <!-- Your service's interface class -->
+            <value>org.openmrs.module.facelist.Service.MultipartService</value> <!-- Your service's interface class -->
             <bean class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
                 <property name="transactionManager"><ref bean="transactionManager"/></property>
                 <property name="target">
-                    <bean class="org.openmrs.module.facelist.Service.DepartmentServiceImpl"> <!-- Your service's concrete class -->
+                    <bean class="org.openmrs.module.facelist.Service.MultipartServiceImpl"> <!-- Your service's concrete class -->
                         <property name="dao"> <!-- Name of the DAO property on your ServiceImpl -->
-                            <bean class="org.openmrs.module.facelist.DAO.HibernateDepartmentDAO"> <!-- Your DAO's concrete class -->
+                            <bean class="org.openmrs.module.facelist.DAO.HibernateMultipartDao"> <!-- Your DAO's concrete class -->
                                 <property name="sessionFactory"><ref bean="dbSessionFactory"/></property>
                             </bean>
                         </property>

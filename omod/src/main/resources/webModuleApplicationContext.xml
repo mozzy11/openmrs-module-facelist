@@ -22,11 +22,20 @@
 
 	<!-- Add here beans related to the web context -->
 
+<context:component-scan base-package="org.openmrs.module.facelist.web.controller" />
 	 
 	<!-- Annotation based controllers -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
 	
-	<context:component-scan base-package="org.openmrs.module.facelist.web.controller" />
- 
-		
+	
+   
+   <bean id="multipartResolver"
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+
+
+    <bean id="patientimageUrlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+     
+    </bean>
+    
+  
 </beans>

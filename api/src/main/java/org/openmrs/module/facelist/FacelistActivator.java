@@ -15,28 +15,31 @@ package org.openmrs.module.facelist;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.openmrs.module.Activator;
 import org.openmrs.module.BaseModuleActivator;
 
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
  */
-public class BasicModuleActivator extends BaseModuleActivator {
-	
-	private Log log = LogFactory.getLog(this.getClass());
-	
+public class FacelistActivator extends BaseModuleActivator {
+
+	private final Log log = LogFactory.getLog(this.getClass());
+
 	/**
 	 * @see org.openmrs.module.Activator#startup()
 	 */
-	public void startup() {
-		log.info("Starting Basic Module");
+
+	@Override
+	public void started() {
+		log.info("Starting Face list module");
 	}
-	
+
 	/**
 	 * @see org.openmrs.module.Activator#shutdown()
 	 */
-	public void shutdown() {
-		log.info("Shutting down Basic Module");
+
+	@Override
+	public void stopped() {
+		log.info("Shutting down FACE-LIST module");
 	}
-	
+
 }

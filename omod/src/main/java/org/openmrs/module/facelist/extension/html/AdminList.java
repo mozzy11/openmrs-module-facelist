@@ -27,8 +27,23 @@ import org.openmrs.module.web.extension.AdministrationSectionExt;
 public class AdminList extends AdministrationSectionExt {
 	
 	/**
+	 * @see org.openmrs.module.web.extension.AdministrationSectionExt#getLinks()
+	 */
+	@Override
+	public Map<String, String> getLinks() {
+		
+		final Map<String, String> map = new HashMap<String, String>();
+		
+		map.put("module/facelist/Jquerytable.form", "SEE FACES-LIST");
+		map.put("module/facelist/addFaces.form", "ADD FACE IMAGE");
+		
+		return map;
+	}
+	
+	/**
 	 * @see org.openmrs.module.web.extension.AdministrationSectionExt#getMediaType()
 	 */
+	@Override
 	public Extension.MEDIA_TYPE getMediaType() {
 		return Extension.MEDIA_TYPE.html;
 	}
@@ -36,22 +51,9 @@ public class AdminList extends AdministrationSectionExt {
 	/**
 	 * @see org.openmrs.module.web.extension.AdministrationSectionExt#getTitle()
 	 */
+	@Override
 	public String getTitle() {
-		return "MY FACE LIST MODULE";
-	}
-	
-	/**
-	 * @see org.openmrs.module.web.extension.AdministrationSectionExt#getLinks()
-	 */
-	public Map<String, String> getLinks() {
-		
-		Map<String, String> map = new HashMap<String, String>();
-		
-		map.put("module/facelist/basicmoduleLink.form", "see face list");
-		map.put("module/facelist/addDepartmentLink.form", "see patients faces");
-		map.put("module/facelist/return.form", "SEE DERPART LIST");
-		
-		return map;
+		return "FACE-LIST ";
 	}
 	
 }

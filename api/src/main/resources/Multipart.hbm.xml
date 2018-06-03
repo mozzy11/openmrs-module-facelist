@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="org.openmrs.module.facelist">
+<class name="Multipart" table="facelist_multipart">
+<id name="MultipartId" type="int" column="multipart_id" unsaved-value="0">
+<generator class="native" />
+</id>
+<discriminator column="Multipart_id" insert="false" />
+<property name ="Patient_ID" type ="int" column ="patient_id" unique ="true"/>
+</class>
+
+</hibernate-mapping>

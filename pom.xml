@@ -3,10 +3,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>facelist</artifactId>
-	<version>0.2</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>Face List Module</name>
-	<description>Parent project for FACE LIST Module</description>
+	<description>Uploads IMAGES FOR PATIENTS FACES AND RETURNS A TABULAR LIST OF ALL THE FACES</description>
 
 	<url>http://openmrs.org</url>
 
@@ -71,6 +71,22 @@
 				<type>pom</type>
 				<scope>test</scope>
 			</dependency>
+			
+			
+			<dependency>
+    <groupId>org.openmrs.module</groupId>
+    <artifactId>webservices.rest-omod</artifactId>
+    <version>2.21.0</version>
+    <scope>provided</scope>
+  </dependency>
+ 
+  <dependency>
+    <groupId>org.openmrs.module</groupId>
+    <artifactId>webservices.rest-omod-common</artifactId>
+    <version>2.21.0</version>
+    <classifier>tests</classifier>
+    <scope>test</scope>
+  </dependency>
 		</dependencies>
 	</dependencyManagement>
 

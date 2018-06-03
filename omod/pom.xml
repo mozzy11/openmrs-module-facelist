@@ -4,7 +4,7 @@
 	<parent>
 	  <groupId>org.openmrs.module</groupId>
 	  <artifactId>facelist</artifactId>
-	  <version>0.2</version>
+	  <version>1.0.0</version>
 	</parent>
 	<artifactId>facelist-omod</artifactId>
 	<packaging>jar</packaging>
@@ -38,11 +38,28 @@
 			<artifactId>openmrs-web</artifactId>
 			<type>test-jar</type>
 		</dependency>
-		<dependency>
+           <dependency>
 			<groupId>org.openmrs.test</groupId>
 			<artifactId>openmrs-test</artifactId>
 			<type>pom</type>
-		</dependency>
+		</dependency> 
+		
+		
+<dependency>
+    <groupId>org.openmrs.module</groupId>
+    <artifactId>webservices.rest-omod</artifactId>
+  
+    <scope>provided</scope>
+  </dependency>
+ 
+  <dependency>
+    <groupId>org.openmrs.module</groupId>
+    <artifactId>webservices.rest-omod-common</artifactId>
+   
+    <classifier>tests</classifier>
+    <scope>test</scope>
+  </dependency>
+		
 	</dependencies>
 
 	<build>

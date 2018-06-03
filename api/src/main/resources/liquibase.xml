@@ -7,15 +7,20 @@ http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
 See http://www.liquibase.org/manual/home#available_database_refactorings
 for a list of supported elements and attributes
 -->
-<changeSet author="yourname" id="20131010-1">
-<comment>Create the department table</comment>
-<createTable tableName="department_Department">
-<column autoIncrement="true" name="department_id" type="int">
-<constraints primaryKey="true" nullable="false" />
-</column>
-<column name="name" type="varchar(255)" />
-<column name="description" type="varchar(255)" />
-<column name="uuid" type="char(38)" />
-</createTable>
-</changeSet>
+
+
+<changeSet  author = "MUTESASIRA M0ZZY" id="20131010">
+   <comment>a new table to store multipart files</comment>
+   <createTable tableName = "facelist_multipart">
+      <column  autoIncrement = "true"  name = "multipart_id" type ="int">  
+           <constraints primaryKey="true" nullable="false" />  
+      </column>
+     
+      <column name ="patient_id" type ="int"/>
+      
+   </createTable>
+</changeSet> 
+
+
+
 </databaseChangeLog>
