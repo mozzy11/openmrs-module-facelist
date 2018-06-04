@@ -11,10 +11,18 @@
 	<url>http://openmrs.org</url>
 
 	<scm>
-		<connection>scm:svn:http://svn.openmrs.org/openmrs-modules/devexamples/jspexample/trunk</connection>
-		<developerConnection>scm:svn:http://svn.openmrs.org/openmrs-modules/devexamples/jspexample/trunk</developerConnection>
-		<url>http://svn.openmrs.org/openmrs-modules/devexamples/jspexample/trunk</url>
-	</scm>
+    <connection>scm:git:https://github.com/mozzy11/openmrs-module-facelist</connection>
+    <developerConnection>scm:git:https://github.com/mozzy11/openmrs-module-facelist</developerConnection>
+    <url>https://github.com/mozzy11/openmrs-module-facelist</url>
+    </scm>
+  
+<distributionManagement>
+    <repository>
+       <id>bintray-mozzy-maven</id>
+       <name>mozzy-maven</name>
+       <url>https://api.bintray.com/maven/mozzy/maven/openmrs-module-facelist/;publish=1</url>
+    </repository>
+</distributionManagement>
 
 	<modules>
 		<module>api</module>
