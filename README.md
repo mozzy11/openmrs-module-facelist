@@ -5,10 +5,10 @@ it stores the images in the openmrs applicationDataDirectory in a folder called 
 
 it can then return a list of all the patient faces with the patient name and id in a jquery table  that can allow u to search for a patient and and can click to view the full face ,forming a face aLbum .
 
-the module can only uplodd one image per patient , and wen a new omage is uploaded for a given who already has one, the old one is by default overidden. 
+the module can only upload one image per patient , and when a new image is uploaded for a given Patient who already have one, the old one is by default overidden. 
 
-its is dependent on the Legacy UI .
+its is dependent on the Legacy UI and runs on openmrs paltform 2+.
 
 the module has links on the Administrator page and on the patient Dashbord .
 
-the Jquery Validator API makes sure u cant not upload an empty image or wothout electing a name. 
+the Jquery Validator API makes sure u cant not upload an empty image or without selecting a Patientname. 
