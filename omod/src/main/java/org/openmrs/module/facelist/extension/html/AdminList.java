@@ -35,8 +35,7 @@ public class AdminList extends AdministrationSectionExt {
 		final Map<String, String> map = new HashMap<String, String>();
 		
 		map.put("module/facelist/Jquerytable.form", "SEE FACES-LIST");
-		map.put("module/facelist/addFaces.form", "ADD FACE IMAGE");
-		
+		map.put("module/facelist/addFaces.form", "ADD FACE IMAGE");	
 		return map;
 	}
 	

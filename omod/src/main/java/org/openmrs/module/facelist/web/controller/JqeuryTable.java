@@ -13,22 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class JqeuryTable {
-
+	
 	@RequestMapping(value = "module/facelist/Jquerytable.form", method = RequestMethod.GET)
-	public String showForm(ModelMap model , HttpServletRequest request) {
-		
+	public String showForm(ModelMap model, HttpServletRequest request) {	
 		Collection<Patient> patients = Context.getPatientService().getAllPatients();
-		model.addAttribute("thePatientList",  patients );
-		
-		 final String endpoint = "moduleServlet/facelist/FaceServlet";
-			final String URL = request.getContextPath() + "/" + endpoint;
-			
-			
-			model.addAttribute("requestURL", URL);
-		
+		model.addAttribute("thePatientList", patients);
+		final String endpoint = "moduleServlet/facelist/FaceServlet";
+		final String URL = request.getContextPath() + "/" + endpoint;
+		model.addAttribute("requestURL", URL);
 		return "module/facelist/JqueryTable";
-	}
-	
-	
-	
+	}	
 }

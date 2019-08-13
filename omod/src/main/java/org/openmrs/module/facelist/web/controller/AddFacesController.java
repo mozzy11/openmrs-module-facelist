@@ -32,91 +32,49 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AddFacesController {
-
-
-	
 	
 	private static final Logger log = LoggerFactory.getLogger(AddFacesController.class);
-
-	
-	
-	
 	
 	@Autowired
 	ServletContext context;
+	
 	@RequestMapping(value = "/module/facelist/addFaces.form", method = RequestMethod.GET)
-	public ModelAndView fileUploadPage( ModelMap map) {
-	Multipart file = new Multipart();
-	
-	
-	Collection<Patient> patients = Context.getPatientService().getAllPatients();
-	map.addAttribute("patients",patients);
-	
-
-	
-	ModelAndView modelAndView = new ModelAndView("/module/facelist/AddFaces", "command", file);
-	return modelAndView;
+	public ModelAndView fileUploadPage(ModelMap map) {
+		Multipart file = new Multipart();
+		Collection<Patient> patients = Context.getPatientService().getAllPatients();
+		map.addAttribute("patients", patients);
+		ModelAndView modelAndView = new ModelAndView("/module/facelist/AddFaces", "command", file);
+		return modelAndView;
 	}
 	
-	
-	@RequestMapping(value="/module/facelist/addFaces.form", method = RequestMethod.POST)
-	public String fileUpload( Multipart file, BindingResult result,
-	ModelMap model ,HttpServletRequest request,  HttpSession sesion) throws IOException {
-	if (result.hasErrors()) {
-	
-	return "/module/facelist/addFaces.form";
-	} else {
-		
-	MultipartService muiltipartService = Context.getService(MultipartService.class);
-		
-	
-	
-	MultipartFile multipartFile = file.getFile();
-	
-	
-	int patientId = file.getPatient_ID();
-	
-	muiltipartService.SaveMultipart(file);  
-
-	
-	File imgDir = new File(OpenmrsUtil.getApplicationDataDirectory(), "Face_images");
-	if (!imgDir.exists()) {
-		FileUtils.forceMkdir(imgDir);}
-	
-
-	
-	String fileName = multipartFile.getOriginalFilename();
-	
-	FileCopyUtils.copy(file.getFile().getBytes(), 
-	new File(imgDir +"/"+ patientId + ".jpg" ));
-	
-	sesion.setAttribute(WebConstants.OPENMRS_MSG_ATTR, fileName + " " + "SUCCESFULLY UPLOADED");
-	  
-	log.info("FILE SAVED SUCCESFULYY");
-	        
-	        final String endpoint = "moduleServlet/facelist/FaceServlet";
-			final String URL = request.getContextPath() + "/" + endpoint;
-			
-	
-	Collection<Patient> patients = Context.getPatientService().getAllPatients();
-
-	
-    model.addAttribute("fileName", fileName);
-	model.addAttribute("realpath", imgDir);
-	model.addAttribute("thePatientList", patients);
-	model.addAttribute("path", imgDir);
-	model.addAttribute("requestURL", URL);
-	
-	
-	
-	return "module/facelist/JqueryTable";
-	}
+	@RequestMapping(value = "/module/facelist/addFaces.form", method = RequestMethod.POST)
+	public String fileUpload(Multipart file, BindingResult result, ModelMap model, HttpServletRequest request,
+	        HttpSession sesion) throws IOException {
+		if (result.hasErrors()) {
+			return "/module/facelist/addFaces.form";
+		} else {		
+			MultipartService muiltipartService = Context.getService(MultipartService.class);
+			MultipartFile multipartFile = file.getFile();
+			int patientId = file.getPatient_ID();
+			muiltipartService.SaveMultipart(file);
+			File imgDir = new File(OpenmrsUtil.getApplicationDataDirectory(), "Face_images");
+			if (!imgDir.exists()) {
+				FileUtils.forceMkdir(imgDir);
+			}
+			String fileName = multipartFile.getOriginalFilename();
+			FileCopyUtils.copy(file.getFile().getBytes(), new File(imgDir + "/" + patientId + ".jpg"));
+			sesion.setAttribute(WebConstants.OPENMRS_MSG_ATTR, fileName + " " + "SUCCESFULLY UPLOADED");
+			log.info("FILE SAVED SUCCESFULYY");
+			final String endpoint = "moduleServlet/facelist/FaceServlet";
+			final String URL = request.getContextPath() + "/" + endpoint;		
+			Collection<Patient> patients = Context.getPatientService().getAllPatients();
+			model.addAttribute("fileName", fileName);
+			model.addAttribute("realpath", imgDir);
+			model.addAttribute("thePatientList", patients);
+			model.addAttribute("path", imgDir);
+			model.addAttribute("requestURL", URL);
+			return "module/facelist/JqueryTable";
+		}
 	}
 	
-	
-	
-		
-	}
-	
-
-
+}
